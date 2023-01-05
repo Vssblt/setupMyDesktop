@@ -1,0 +1,9 @@
+[submodule "shadowsocks-libev_configuration"]
+	path = shadowsocks-libev_configuration
+	url = git@github.com:Vssblt/shadowsocks-libev_configuration
+[submodule "docker-install-shell"]
+	path = docker-install-shell
+	url = git@github.com:Vssblt/docker-install-shell.git
+[submodule "i3-config"]
+	path = i3-config
+	url = git@github.com:Vssblt/i3-config.git
