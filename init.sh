@@ -40,7 +40,7 @@ fi
 # diff-so-fancy # git diff beauty
 # 
 
-git submodules init --update
+git submodule update --init
 
 ubuntu_codename=`lsb_release -a | grep Codename -i | awk '{print $2}'`
 sudo wget https://mirrors.ustc.edu.cn/repogen/conf/ubuntu-https-4-$ubuntu_codename -O /etc/apt/sources.list
@@ -58,7 +58,7 @@ sudo dpkg -i ./packages/netease-cloud-music.deb
 
 echo "############################"
 echo "开始安装shadowsocks-libev"
-cd ./shadowsocks-libev_configuration/ && ./init.sh --setup && cd -
+sudo su - $1 -c 'cd ./shadowsocks-libev_configuration/ && ./init.sh --setup && cd -'
 
 echo "############################"
 echo "开始安装驱动"
@@ -66,29 +66,29 @@ sudo ubuntu-drivers autoinstall
 
 echo "############################"
 echo "开始安装docker和nvidia-docker"
-cd ./docker-install-shell && sudo bash install-docker.sh && cd -
+sudo su - $1 -c 'cd ./docker-install-shell && sudo bash install-docker.sh && cd -'
 
 echo "############################"
 echo "开始安装i3"
 
 echo "############################"
 echo "开始安装polybar"
-cd ./polybar && ./init.sh && cd -
+sudo su - $1 -c 'cd ./polybar && ./init.sh && cd -'
 
 echo "############################"
 echo "开始安装node相关软件"
 sudo npm install diff-so-fancy -y
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-git config --global interactive.diffFilter "diff-so-fancy --patch"
-git config --global color.ui true
-git config --global color.diff-highlight.oldNormal    "red bold"
-git config --global color.diff-highlight.oldHighlight "red bold 52"
-git config --global color.diff-highlight.newNormal    "green bold"
-git config --global color.diff-highlight.newHighlight "green bold 22"
-git config --global color.diff.meta       "11"
-git config --global color.diff.frag       "magenta bold"
-git config --global color.diff.func       "146 bold"
-git config --global color.diff.commit     "yellow bold"
-git config --global color.diff.old        "red bold"
-git config --global color.diff.new        "green bold"
-git config --global color.diff.whitespace "red reverse"
+sudo su - $1 -c 'git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"'
+sudo su - $1 -c 'git config --global interactive.diffFilter "diff-so-fancy --patch"'
+sudo su - $1 -c 'git config --global color.ui true'
+sudo su - $1 -c 'git config --global color.diff-highlight.oldNormal    "red bold"'
+sudo su - $1 -c 'git config --global color.diff-highlight.oldHighlight "red bold 52"'
+sudo su - $1 -c 'git config --global color.diff-highlight.newNormal    "green bold"'
+sudo su - $1 -c 'git config --global color.diff-highlight.newHighlight "green bold 22"'
+sudo su - $1 -c 'git config --global color.diff.meta       "11"'
+sudo su - $1 -c 'git config --global color.diff.frag       "magenta bold"'
+sudo su - $1 -c 'git config --global color.diff.func       "146 bold"'
+sudo su - $1 -c 'git config --global color.diff.commit     "yellow bold"'
+sudo su - $1 -c 'git config --global color.diff.old        "red bold"'
+sudo su - $1 -c 'git config --global color.diff.new        "green bold"'
+sudo su - $1 -c 'git config --global color.diff.whitespace "red reverse"'
