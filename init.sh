@@ -4,12 +4,6 @@ if [ "$1" == "" ]; then
   exit
 fi
 
-su - $1
-if [ "$?" != "0" ]; then
-  echo "用户不存在"
-  exit 
-fi
-
 echo 是否已将SSH RSA密钥加入到github？[y/N]
 read result
 if [ "$result" != "y" ]; then
@@ -46,7 +40,7 @@ ubuntu_codename=`lsb_release -a | grep Codename -i | awk '{print $2}'`
 sudo wget https://mirrors.ustc.edu.cn/repogen/conf/ubuntu-https-4-$ubuntu_codename -O /etc/apt/sources.list
 sudo add-apt-repository ppa:obsproject/obs-studio
 
-sudo apt update && apt install git iputils-ping gcc g++ autoconf automake libtool screen \
+sudo apt update && sudo apt install git iputils-ping gcc g++ autoconf automake libtool screen \
   libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager qemu-utils \
   openssh-server wget vim alsa-utils apt-transport-https gdb gdbserver xorg zsh \
   curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
