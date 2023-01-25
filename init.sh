@@ -40,7 +40,7 @@ ubuntu_codename=`lsb_release -a | grep Codename -i | awk '{print $2}'`
 sudo wget https://mirrors.ustc.edu.cn/repogen/conf/ubuntu-https-4-$ubuntu_codename -O /etc/apt/sources.list
 sudo add-apt-repository ppa:obsproject/obs-studio
 
-sudo apt update && sudo apt install git iputils-ping gcc g++ autoconf automake libtool screen \
+sudo apt update && sudo apt install trayer git iputils-ping gcc g++ autoconf automake libtool screen \
   libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager qemu-utils \
   openssh-server wget vim alsa-utils apt-transport-https gdb gdbserver xorg zsh \
   curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
@@ -65,12 +65,7 @@ cd ./docker-install-shell && sudo bash install-docker.sh && cd -
 
 echo "############################"
 echo "开始安装i3"
-
-echo "############################"
-echo "开始安装polybar"
-cd ./polybar
-sudo runuser -u $1 -- ./init.sh
-cd - 
+cd ./i3-config/ && ./install.sh && cd -
 
 echo "############################"
 echo "开始安装node相关软件"
