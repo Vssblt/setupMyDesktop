@@ -34,7 +34,7 @@ fi
 # diff-so-fancy # git diff beauty
 # 
 
-git submodule update --init
+sudo su - $1 -c 'git submodule update --init'
 
 ubuntu_codename=`lsb_release -a | grep Codename -i | awk '{print $2}'`
 sudo wget https://mirrors.ustc.edu.cn/repogen/conf/ubuntu-https-4-$ubuntu_codename -O /etc/apt/sources.list
