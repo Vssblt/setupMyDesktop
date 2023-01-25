@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$1" == "" ]; then
-  echo "请输入用户名，并确保已加入sudo"
+  echo "请输入用户名，并确保使用 sudo 运行该脚本。"
   exit
 fi
 
@@ -11,13 +11,19 @@ if [ "$result" != "y" ]; then
   exit
 fi
 
+echo 该操作会覆盖现有配置，是否继续？[y/N]
+read result
+if [ "$result" != "y" ]; then
+  echo 已终止安装！
+  exit
+fi
 
 
 ### list ###
-# common software
-# shadowsocks-libev
-# nvidia driver
-# docker and nvidia-docker
+# [done] common software
+# [done] shadowsocks-libev
+# [done] nvidia driver
+# [done] docker and nvidia-docker
 # neovim and my neovim ide
 # i3wm-gaps
 #   polybar
@@ -25,13 +31,13 @@ fi
 #   fcitx5 
 #   blueman-applet 
 #   telegram-desktop 
-#   feh
+# [done] feh
 #   steam
 #   wallpaper-engine
-#   birdtray
-#   xfce4-terminal
-# bitcoin-qt
-# diff-so-fancy # git diff beauty
+# [done] birdtray
+# [done] xfce4-terminal
+# bitcoin-qt [optional]
+# [done] diff-so-fancy # git diff beauty
 # 
 
 sudo runuser -u $1 -- git submodule update --init
@@ -69,7 +75,9 @@ cd ./i3-config/ && ./install.sh && cd -
 
 echo "############################"
 echo "开始安装xfce4-terminal"
-cd ./xfce4-terminal && ./install.sh && cd -
+cd ./xfce4-terminal
+sudo runuser -u vssblt -- ./install.sh
+cd -
 
 echo "############################"
 echo "开始安装node相关软件"
