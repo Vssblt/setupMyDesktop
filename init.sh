@@ -96,3 +96,7 @@ sudo runuser -u $1 -- git config --global color.diff.commit     "yellow bold"
 sudo runuser -u $1 -- git config --global color.diff.old        "red bold"
 sudo runuser -u $1 -- git config --global color.diff.new        "green bold"
 sudo runuser -u $1 -- git config --global color.diff.whitespace "red reverse"
+
+
+echo "############################"
+echo "开始安装Telegram-desktop软件"
