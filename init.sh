@@ -61,14 +61,16 @@ sudo ubuntu-drivers autoinstall
 
 echo "############################"
 echo "开始安装docker和nvidia-docker"
-sudo runuser -u $1 -- cd ./docker-install-shell && sudo bash install-docker.sh && cd -
+cd ./docker-install-shell && sudo bash install-docker.sh && cd -
 
 echo "############################"
 echo "开始安装i3"
 
 echo "############################"
 echo "开始安装polybar"
-sudo runuser -u $1 -- cd ./polybar && ./init.sh && cd -
+cd ./polybar
+sudo runuser -u $1 -- ./init.sh
+cd - 
 
 echo "############################"
 echo "开始安装node相关软件"
