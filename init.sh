@@ -41,10 +41,10 @@ sudo wget https://mirrors.ustc.edu.cn/repogen/conf/ubuntu-https-4-$ubuntu_codena
 sudo add-apt-repository ppa:obsproject/obs-studio
 
 sudo apt update && sudo apt install trayer git iputils-ping gcc g++ autoconf automake libtool screen \
+  openssh-server wget vim alsa-utils apt-transport-https gdb gdbserver xorg zsh xfce4-terminal \
   libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager qemu-utils \
-  openssh-server wget vim alsa-utils apt-transport-https gdb gdbserver xorg zsh \
-  curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
   software-properties-common thunderbird rclone filezilla fzf ranger cpu-x neofetch \
+  curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
   firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio \
   gnome-system-monitor figlet nodejs npm -y
 
