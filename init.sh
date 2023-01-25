@@ -68,6 +68,10 @@ echo "开始安装i3"
 cd ./i3-config/ && ./install.sh && cd -
 
 echo "############################"
+echo "开始安装xfce4-terminal"
+cd ./xfce4-terminal && ./install.sh && cd -
+
+echo "############################"
 echo "开始安装node相关软件"
 sudo npm -g install diff-so-fancy -y
 sudo runuser -u $1 -- git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
