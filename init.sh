@@ -100,3 +100,4 @@ sudo runuser -u $1 -- git config --global color.diff.whitespace "red reverse"
 
 echo "############################"
 echo "开始安装Telegram-desktop软件"
+sudo snap install --classic telegram-desktop
