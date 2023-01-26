@@ -51,7 +51,7 @@ sudo apt update && sudo apt install trayer git iputils-ping gcc g++ autoconf aut
   libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager qemu-utils \
   software-properties-common thunderbird rclone filezilla fzf ranger cpu-x neofetch \
   curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
-  firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio fcitx5 blueman \
+  firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio fcitx5 blueman zenity \
   gnome-system-monitor figlet nodejs npm -y
 
 sudo dpkg -i ./packages/netease-cloud-music.deb
