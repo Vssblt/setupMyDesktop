@@ -24,15 +24,15 @@ fi
 # [done] shadowsocks-libev
 # [done] nvidia driver
 # [done] docker and nvidia-docker
-# neovim and my neovim ide
+# [done] neovim and my neovim ide
 # i3wm-gaps
-#   polybar
-#   trayer
-#   fcitx5 
-#   blueman-applet 
-#   telegram-desktop 
+# [done] polybar
+# [done] trayer
+# [done] fcitx5 
+# [done] blueman-applet 
+# [done] telegram-desktop 
 # [done] feh
-#   steam
+# [done] steam
 #   wallpaper-engine
 # [done] birdtray
 # [done] xfce4-terminal
@@ -51,7 +51,7 @@ sudo apt update && sudo apt install trayer git iputils-ping gcc g++ autoconf aut
   libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager qemu-utils \
   software-properties-common thunderbird rclone filezilla fzf ranger cpu-x neofetch \
   curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
-  firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio \
+  firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio fcitx5 blueman \
   gnome-system-monitor figlet nodejs npm -y
 
 sudo dpkg -i ./packages/netease-cloud-music.deb
@@ -101,3 +101,15 @@ sudo runuser -u $1 -- git config --global color.diff.whitespace "red reverse"
 echo "############################"
 echo "开始安装Telegram-desktop软件"
 sudo snap install --classic telegram-desktop
+
+
+echo "############################"
+echo "开始安装neovim插件"
+sudo runuser -u $1 -- git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+sudo runuser -u $1 -- cat ./vim-ide.nvim/README.md > ~/.config/nvim/init.lua
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O /usr/bin/nvim
+
+echo "############################"
+echo "开始安装steam"
+wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+sudo dpkg -i steam.deb

@@ -7,3 +7,6 @@
 [submodule "i3-config"]
 	path = i3-config
 	url = git@github.com:Vssblt/i3-config.git
+[submodule "vim-ide.nvim"]
+	path = vim-ide.nvim
+	url = git@github.com:Vssblt/vim-ide.nvim
