@@ -38,6 +38,9 @@ fi
 # [done] xfce4-terminal
 # bitcoin-qt [optional]
 # [done] diff-so-fancy # git diff beauty
+# betterlockscreen
+# xautolock
+# i3lock-color
 # 
 
 sudo runuser -u $1 -- git submodule update --init
@@ -52,7 +55,7 @@ sudo apt update && sudo apt install trayer git iputils-ping gcc g++ autoconf aut
   software-properties-common thunderbird rclone filezilla fzf ranger cpu-x neofetch \
   curl sudo libdigest-sha-perl psmisc net-tools iftop dnsutils telnet nfs-common \
   firefox vlc xfce4-screenshooter gimp ffmpeg obs-studio fcitx5 blueman zenity \
-  gnome-system-monitor figlet nodejs npm -y
+  gnome-system-monitor figlet nodejs npm xautolock -y
 
 sudo dpkg -i ./packages/netease-cloud-music.deb
 
@@ -113,3 +116,11 @@ echo "############################"
 echo "开始安装steam"
 wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
 sudo dpkg -i steam.deb
+
+echo "############################"
+echo "开始安装i3lock-color/betterlockscreen"
+sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+sudo runuser -u $1 -- git clone --depth 1 https://github.com/Raymo111/i3lock-color.git ~/.local/share/i3lock-color
+cd ~/.local/share/i3lock-color 
+sudo runuser -u $1 -- ./install-i3lock-color.sh
+cd -
